@@ -1,0 +1,39 @@
+<ion-content padding>
+
+  <div padding>
+    <ion-row>
+      <ion-col>
+        <img class="logo" src="assets/img/logo/login.png" />
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-list inset class="no-border">
+          <ion-item>
+
+            <ion-input name=“reg-telephone” type="text" placeholder="手机账号"></ion-input>
+          </ion-item>
+
+          <ion-item>
+
+            <ion-input name="password-one" type="password" placeholder="输入密码"></ion-input>
+          </ion-item>
+
+          <ion-item>
+
+            <ion-input name="password-tow" type="password" placeholder="确认密码"></ion-input>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <button ion-button class="login-button" (click)="toRegister()">注册</button>
+      </ion-col>
+    </ion-row>
+
+  </div>
+</ion-content>
+
