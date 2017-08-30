@@ -1,25 +1,47 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the HomePage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
+import { NavController, IonicPage } from 'ionic-angular';
 
 @IonicPage()
 @Component({
   selector: 'page-home',
-  templateUrl: 'home.html',
+  templateUrl: 'home.html'
 })
 export class HomePage {
+  openMenu = false;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController) { }
+
+  togglePopupMenu() {
+    return this.openMenu = !this.openMenu;
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad HomePage');
+  goToAccount() {
+    alert('Account clicked.');
+    this.togglePopupMenu();
   }
 
+  goToHome() {
+    alert('Home clicked.');
+    this.togglePopupMenu();
+  }
+
+  goToCups() {
+    alert('Cups clicked.');
+    this.togglePopupMenu();
+  }
+
+  goToLeaderboard() {
+    alert('Leaderboard clicked.');
+    this.togglePopupMenu();
+  }
+
+  goToHelp() {
+    alert('Help clicked.');
+    this.togglePopupMenu();
+  }
+
+  goToShop() {
+    alert('Shop clicked.');
+    this.togglePopupMenu();
+  }
 }

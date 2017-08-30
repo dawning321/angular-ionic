@@ -1,3 +1,11 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>注册</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
 <ion-content padding>
 
   <div padding>
@@ -12,26 +20,31 @@
         <ion-list inset class="no-border">
           <ion-item>
 
-            <ion-input name=“reg-telephone” type="text" placeholder="手机账号"></ion-input>
+            <ion-input name=“reg-telephone” type="text" placeholder="手机账号" #box (keyup.enter)="getUserName(box.value)" (ionBlur)="getTel(box.value)"></ion-input>
           </ion-item>
 
           <ion-item>
 
-            <ion-input name="password-one" type="password" placeholder="输入密码"></ion-input>
+            <ion-input name="password-one" type="password" placeholder="输入密码" #box2 (keyup.enter)="getUserName(box.value)" (ionBlur)="getPasswordOne(box2.value)"></ion-input>
           </ion-item>
 
           <ion-item>
 
-            <ion-input name="password-tow" type="password" placeholder="确认密码"></ion-input>
+            <ion-input name="password-tow" type="password" placeholder="确认密码" #box3 (keyup.enter)="getUserName(box.value)" (ionBlur)="getPasswordTwo(box3.value)"></ion-input>
+          </ion-item>
+          <ion-item>
+
+            <ion-input width-50 name="inputVerification" type="text" placeholder="输入验证码" item-left></ion-input>
+            <button ion-button width-50 class="login-button" (click)="sendVerificationCode()" item-right>发送验证码</button>
           </ion-item>
         </ion-list>
       </ion-col>
     </ion-row>
 
     <ion-row>
-      <ion-col>
-        <button ion-button class="login-button" (click)="toRegister()">注册</button>
-      </ion-col>
+
+      <button ion-button class="login-button" (click)="toRegister()">注册</button>
+
     </ion-row>
 
   </div>

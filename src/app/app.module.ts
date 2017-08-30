@@ -18,12 +18,10 @@ import { HomePage } from "../pages/home/home";
     UserRegisterPage,
     FindPasswordPage,
     HomePage,
-
   ],
 
   imports: [
     BrowserModule,
-
     IonicModule.forRoot(MyApp)
   ],
 
@@ -35,6 +33,7 @@ import { HomePage } from "../pages/home/home";
     UserRegisterPage,
     FindPasswordPage,
     HomePage,
+
   ],
   providers: [
     StatusBar,
