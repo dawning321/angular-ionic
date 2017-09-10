@@ -5,7 +5,7 @@ import {UserRegisterPage} from "../user-register/user-register";
 import {FindPasswordPage} from "../find-password/find-password";
 import { HomePage } from "../home/home";
 import { UserService } from "../../app/user.service";
-
+import { USER } from "../../app/user";
 
 @Component({
   selector: 'page-login-one',
@@ -14,10 +14,11 @@ import { UserService } from "../../app/user.service";
 })
 export class LoginOnePage {
 
-  User: user = {
+  User: USER = {
     func:"login",
     name:'',
     password:'',
+    newPassword:'',
     success:false,
     errorMessage:''
   }
@@ -27,7 +28,7 @@ export class LoginOnePage {
     public loadingCtrl: LoadingController,
     public app: App,
     public navCtrl: NavController,
-    public UService:UserService
+    private UService:UserService
 
   ) {}
 
@@ -60,12 +61,4 @@ export class LoginOnePage {
   findPassword(){
     this.navCtrl.push( FindPasswordPage )
   }
-}
-
-export class user{
-  func:string
-  name: string
-  password: string
-  success: boolean
-  errorMessage: string
 }

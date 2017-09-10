@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, AlertController } from 'ionic-angular';
-import { user} from '../login/login-one'
-import { UserService} from "../../app/user.service";
+import { USER} from "../../app/user";
+import {UserService} from "../../app/user.service";
+
 
 
 @IonicPage()
@@ -11,10 +12,11 @@ import { UserService} from "../../app/user.service";
   providers: [ UserService ],
 })
 export class UserRegisterPage {
-  User: user = {
+  User: USER = {
     func:"register",
     name:'',
     password:'',
+    newPassword:'',
     success:false,
     errorMessage:''
   }
@@ -25,7 +27,7 @@ export class UserRegisterPage {
   }
   constructor(
     public alertCtrl: AlertController,
-    public UService: UserService
+    private UService: UserService
   ) {}
 
   ionViewDidLoad() {
@@ -43,7 +45,7 @@ export class UserRegisterPage {
   sendVerificationCode(){
 //TODO:请求服务器发送验证码
   }
-  toRegister(tel:string){
+  toRegister(){
     console.log(this.userinput)
     // 检查两次输入的密码是否一致
     if (this.userinput.passwordOne !== this.userinput.passwordTwo){

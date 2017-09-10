@@ -10,6 +10,10 @@ import { LoginOnePage} from "../pages/login/login-one";
 import { UserRegisterPage } from '../pages/user-register/user-register';
 import { FindPasswordPage } from "../pages/find-password/find-password";
 import { HomePage } from "../pages/home/home";
+import { ChangePasswordPage } from "../pages/change-password/change-password"
+//import { UserService} from "./user.service";
+import { SubscriptMarketPage } from "../pages/subscript-market/subscript-market";
+import { ShowDeptMarketPage} from "../pages/show-dept-market/show-dept-market";
 
 @NgModule({
   declarations: [
@@ -18,6 +22,9 @@ import { HomePage } from "../pages/home/home";
     UserRegisterPage,
     FindPasswordPage,
     HomePage,
+    ChangePasswordPage,
+    SubscriptMarketPage,
+    ShowDeptMarketPage,
   ],
 
   imports: [
@@ -33,11 +40,15 @@ import { HomePage } from "../pages/home/home";
     UserRegisterPage,
     FindPasswordPage,
     HomePage,
+    ChangePasswordPage,
+    SubscriptMarketPage,
+    ShowDeptMarketPage,
 
   ],
   providers: [
     StatusBar,
     SplashScreen,
+
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

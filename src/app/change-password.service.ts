@@ -6,7 +6,7 @@ import { Injectable} from '@angular/core';
 
 
 @Injectable()
-export class UserService {
+export class ChangePasswordService {
   public wsLogin:WebSocket
   constructor(
     public loadingCtrl: LoadingController,
@@ -64,14 +64,14 @@ export class UserService {
           alert.present();
         }
       } else {
-          console.log("not fucntion")
+        console.log("not fucntion")
       }
 
     }
   }
-  // 处理登录和注册
-  handle(func:string,name:string,password:string) {
-    this.wsLogin.send(JSON.stringify({Func:func,Username:name, Password:password,NewPassword:"",Success:false,ErrorMessage:""}));
+  // 修改密码
+  handleChangePassword(func,name,password,newPassword:string){
+    this.wsLogin.send(JSON.stringify({Func:func,Username:name, Password:password,NewPassword:newPassword,Success:false,ErrorMessage:""}));
     console.log("send ",func)
   }
 }

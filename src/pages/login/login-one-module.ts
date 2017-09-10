@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
-import { UserRegisterPage } from './user-register';
+import { LoginOnePage } from './login-one';
 import { UserService } from "../../app/user.service";
 
 @NgModule({
   declarations: [
-    UserRegisterPage,
+    LoginOnePage,
   ],
   imports: [
-    IonicPageModule.forChild(UserRegisterPage),
+    IonicPageModule.forChild(LoginOnePage),
   ],
   providers:[ UserService ]
 })
-export class UserRegisterPageModule {}
+export class LoginOnePageModule {}
