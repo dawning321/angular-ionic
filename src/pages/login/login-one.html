@@ -1,50 +1,103 @@
+
 <ion-content padding class="transparent-header" [ngStyle]="{'background-image': 'url(' + backgroundImage +')'}">
 
   <div padding>
-    <ion-row>
-      <ion-col>
-        <img class="logo" src="assets/img/logo/login.png" />
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>
-        <ion-list inset class="no-border">
-          <ion-item>
-            <!--TODO:对账号输入规定为手机格式-->
-            <ion-input type="text" placeholder="账号" #box (keyup.enter)="getUserName(box.value)" (ionBlur)="getUserName(box.value)"></ion-input>
-          </ion-item>
-          <ion-item>
-            <!--TODO:密码的长度，输入的字符，进行提醒-->
-            <ion-input type="password" placeholder="密码" #box2 (keyup.enter)="getUserPassword(box2.value)" (ionBlur)="getUserPassword(box2.value)" minlength="8" maxlength="20"></ion-input>
-          </ion-item>
-        </ion-list>
-      </ion-col>
-    </ion-row>
+    <form [formGroup]="loginForm" >
+      <ion-row>
+        <ion-col>
+          <img class="logo" src="assets/img/logo/login.png" />
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-item>
+          <ion-label floating>手机号</ion-label>
+          <ion-input required type="text" formControlName="userName" minlength="11"></ion-input>
+        </ion-item>
+        <!--<p *ngIf="loginForm.controls.LoginID.valid && loginForm.controls.LoginID.touched" secondary> LoginID is good</p>-->
+
+        <ion-item>
+          <ion-label floating>密码</ion-label>
+          <ion-input type="password" formControlName="userPassword" minlength="6"></ion-input>
+        </ion-item>
+      </ion-row>
 
 
-    <ion-row>
-      <ion-col width-90>
-      </ion-col>
-      <ion-col width-5>
-        <p (click)="findPassword()">忘记密码?</p>
-      </ion-col>
-    </ion-row>
+      <ion-row>
+        <ion-col width-90>
+        </ion-col>
+        <ion-col width-5>
+          <p (click)="findPassword()">忘记密码?</p>
+        </ion-col>
+      </ion-row>
 
 
-    <ion-row>
-      <ion-col>
-        <button ion-button class="login-button" (click)="userLogin()">登录</button>
-      </ion-col>
-    </ion-row>
+      <ion-row>
+        <ion-col>
+          <button ion-button class="login-button" (click)="userLogin(loginForm.value, $event)">登录</button>
+        </ion-col>
+      </ion-row>
 
-    <ion-row>
-      <ion-col>
-        <button ion-button class="login-button" (click)="touristLogin()">游客</button>
-      </ion-col>
-      <ion-col>
-        <button ion-button class="login-button" (click)="userRegister()">注册</button>
-      </ion-col>
-    </ion-row>
-
+      <ion-row>
+        <ion-col>
+          <button ion-button class="login-button" (click)="touristLogin()">游客</button>
+        </ion-col>
+        <ion-col>
+          <button ion-button class="login-button" (click)="userRegister()">注册</button>
+        </ion-col>
+      </ion-row>
+    </form>
   </div>
 </ion-content>
+
+
+<!--<ion-content padding class="transparent-header" [ngStyle]="{'background-image': 'url(' + backgroundImage +')'}">-->
+
+<!--<div padding>-->
+<!--<ion-row>-->
+<!--<ion-col>-->
+<!--<img class="logo" src="assets/img/logo/login.png" />-->
+<!--</ion-col>-->
+<!--</ion-row>-->
+<!--<ion-row>-->
+<!--<ion-col>-->
+<!--<ion-list inset class="no-border">-->
+<!--<ion-item>-->
+<!--&lt;!&ndash;TODO:对账号输入规定为手机格式&ndash;&gt;-->
+<!--<ion-input type="text" placeholder="账号" #box (keyup.enter)="getUserName(box.value)" (ionBlur)="getUserName(box.value)"></ion-input>-->
+<!--</ion-item>-->
+<!--<ion-item>-->
+<!--&lt;!&ndash;TODO:密码的长度，输入的字符，进行提醒&ndash;&gt;-->
+<!--<ion-input type="password" placeholder="密码" #box2 (keyup.enter)="getUserPassword(box2.value)" (ionBlur)="getUserPassword(box2.value)" minlength="8" maxlength="20"></ion-input>-->
+<!--</ion-item>-->
+<!--</ion-list>-->
+<!--</ion-col>-->
+<!--</ion-row>-->
+
+
+<!--<ion-row>-->
+<!--<ion-col width-90>-->
+<!--</ion-col>-->
+<!--<ion-col width-5>-->
+<!--<p (click)="findPassword()">忘记密码?</p>-->
+<!--</ion-col>-->
+<!--</ion-row>-->
+
+
+<!--<ion-row>-->
+<!--<ion-col>-->
+<!--<button ion-button class="login-button" (click)="userLogin()">登录</button>-->
+<!--</ion-col>-->
+<!--</ion-row>-->
+
+<!--<ion-row>-->
+<!--<ion-col>-->
+<!--<button ion-button class="login-button" (click)="touristLogin()">游客</button>-->
+<!--</ion-col>-->
+<!--<ion-col>-->
+<!--<button ion-button class="login-button" (click)="userRegister()">注册</button>-->
+<!--</ion-col>-->
+<!--</ion-row>-->
+
+<!--</div>-->
+<!--</ion-content>-->
