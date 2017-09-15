@@ -71,7 +71,7 @@ export class UserService {
   }
   // 处理登录和注册
   handle(func:string,name:string,password:string) {
-    this.wsLogin.send(JSON.stringify({Func:func,Username:name, Password:password,NewPassword:"",Success:false,ErrorMessage:""}));
+    this.wsLogin.send(JSON.stringify({Func:func,Username:name, Password:password}));
     console.log("send ",func)
   }
 }

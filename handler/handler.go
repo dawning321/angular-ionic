@@ -10,8 +10,8 @@ import (
 
 type User struct {
   Func string
-  Username string `json:"username"`
-  Password  string `json:"password"`
+  Username string
+  Password  string
   NewPassword string
   Success bool
   ErrorMessage string
@@ -25,7 +25,7 @@ var (
   registerChan = make(chan User)  //　注册数据通道
   changePasswordChan = make(chan User) //　修改密码通道
   subscriptChan = make(chan User) // 订阅代码通道
-
+  sendVcodeChan = make(chan User)
 
   clients = make(map[*websocket.Conn]bool)  //　已经连接的websocket clients
   upgrader = websocket.Upgrader{  // 设置upgrader
@@ -91,6 +91,11 @@ func HandleConnections(w http.ResponseWriter, r *http.Request) {
       subscriptChan <- msg
 
 
+    }else if msg.Func == "sendvcode"{
+      fmt.Println("goto sendvcode")
+      // 处理发送验证码请求
+      go HandleSendVcode()
+      sendVcodeChan <- msg
     }else {
       fmt.Println("function error")
       break
@@ -229,6 +234,14 @@ func HandleChangePassword(){
         delete(clients, client)
       }
     }
+  }
+}
+
+func HandleSendVcode(){
+  // TODO:send()
+  for{
+    msg := <-sendVcodeChan
+    fmt.Println(msg.Username)
   }
 }
 
